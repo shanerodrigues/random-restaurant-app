@@ -1,6 +1,6 @@
 # Random Restaurant App
 
-This app allows you to search for a restaurant given a latitude and longitude.
+This app suggests a random restaurant given a latitude and longitude.
 
 Made using React and VS Code.
 
