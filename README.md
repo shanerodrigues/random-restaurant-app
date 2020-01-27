@@ -1,5 +1,7 @@
 # Random Restaurant App
 
+https://shanerodrigues.github.io/random-restaurant-app
+
 This app suggests a random restaurant given a latitude and longitude.
 
 Made using React and VS Code.
