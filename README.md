@@ -1,3 +1,11 @@
+#Random Restaurant App
+
+This app allows you to search for a restaurant given a latitude and longitude.
+
+Made using React and VS Code.
+------
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
