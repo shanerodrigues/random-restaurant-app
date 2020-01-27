@@ -42,6 +42,7 @@ export default function Res(){
 
         const request = {
             location: location,
+            // Radius is in metres.
             radius: '1200',
             type: ['restaurant']
         };
