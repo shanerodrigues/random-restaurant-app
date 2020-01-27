@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #EAEDED;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,26 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.outer-container{
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+}
+
+.lat-lng{
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.random-restaurant{
+  color: black;
+  letter-spacing: .5px;
+
+}
+
+.subtitle{
+  padding-bottom: 100px;
 }
