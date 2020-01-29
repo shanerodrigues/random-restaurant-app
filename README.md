@@ -5,7 +5,7 @@ https://shanerodrigues.github.io/random-restaurant-app
 This app suggests a random restaurant given a latitude and longitude.
 
 Made using React and VS Code
-APIs used - [https://developers.google.com/maps/documentation/javascript/tutorial](Google Maps Javascript API) & [https://opencagedata.com/](OpenCage Data).
+APIs used - [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/tutorial) & [OpenCage Data](https://opencagedata.com/).
 
 ------
 
