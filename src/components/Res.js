@@ -5,10 +5,7 @@ import Input from '@material-ui/core/Input';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { createMuiTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import {makeStyles} from '@material-ui/core/styles';
+
 //process.env.REACT_APP_RES_API_KEY
 
 // Responsive Title
@@ -88,16 +85,11 @@ export default function Res(){
     const [currentRestaurant, setCurrentRestaurant] = useState(null);
     var [place, setPlace] = useState('Sydney');
     var textLat = null;
-    var textLng = null;
+    var textLng = null;    
 
-
-    var state ={ 
-        loading: true,
-    };
-    
-    
-
-
+    /* Function that returns lat + long of place given in Text Search 
+    The lat + long is then passed into handleSearch() function which
+    finds the restaurant and displays.*/
     async function handleRequest(event){
         
         
@@ -105,7 +97,7 @@ export default function Res(){
         var request_url = api_url 
         + 'q=' + place
         + '&key=' + api_key
-        console.log(place);
+        // debugging console.log(place);
 
 
         const response = await fetch(request_url);
@@ -113,15 +105,15 @@ export default function Res(){
         //setXLat(data.results[0].geometry.lat);
         var textLat = (data.results[0].geometry.lat);
         var textLng = (data.results[0].geometry.lng);
-        console.log(textLat + ' lat ' + textLng + ' lng ');
+        //debugging console.log(textLat + ' lat ' + textLng + ' lng ');
         lat = (textLat);
         lng = (textLng);
-        console.log(lat + ' lat ' + lng + ' lng ');
+        // debugging console.log(lat + ' lat ' + lng + ' lng ');
         handleSearch();
         
     }
 
-
+    /*Gets values from inputs and stores them in variables */
     function handleSearchChange(event){
         place = (event.target.value);
         //console.log(place);
@@ -129,16 +121,14 @@ export default function Res(){
     }
     function handleLatChange(event){
         setLat(event.target.value);
-        textLat = lat;
 
     }
 
     function handleLngChange(event){
         setLng(event.target.value);
-        textLng = lng;
     }
 
-
+    // Google Maps Javascript API 
     function handleSearch(event){
         const location = new window.google.maps.LatLng(lat,lng);
 
@@ -162,6 +152,7 @@ export default function Res(){
             });
     }
     
+    // sets the random restaurant and displays it
     let currentRandomRestaurant = null;
     if (currentRestaurant) {
         currentRandomRestaurant = (
@@ -175,7 +166,6 @@ export default function Res(){
     }
 
 
-    // grid
 
     return(
         <div className="outer-container">
@@ -195,7 +185,7 @@ export default function Res(){
             </div>
             <Button onClick={handleSearch} color ="secondary" variant="outlined">Search</Button>
             <div className="subtitle2">
-                <Typography variant="h5" align="center" color="textSecondary" display="inline">
+                <Typography  variant="h5" align="center" color="textSecondary" display="inline">
                     <Box >Enter a city and discover a restaurant!</Box>
                 </Typography>
             </div>
