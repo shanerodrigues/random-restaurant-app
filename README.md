@@ -9,7 +9,7 @@ Made using React and VS Code
 
 APIs used - [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/tutorial) & [OpenCage Data](https://opencagedata.com/).
 
-** Update 30/01: Text search for cities implemented. **
+**Update 30/01: Text search for cities implemented.**
 
 ------
 
