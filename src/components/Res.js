@@ -19,6 +19,8 @@ var api_url = 'https://api.opencagedata.com/geocode/v1/json?'
 // https://api.opencagedata.com/geocode/v1/json?q=LAT+LNG&key=bd548102b4ae420185f6f1dd430dc27b
 // https://api.opencagedata.com/geocode/v1/json?q=PLACENAME&key=bd548102b4ae420185f6f1dd430dc27b
 
+// commented
+
 /*
             
         <div className="flex.container">
