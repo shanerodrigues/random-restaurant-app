@@ -2,7 +2,10 @@
 
 https://shanerodrigues.github.io/random-restaurant-app
 
-This app suggests a random restaurant given a latitude and longitude.
+This app suggests a random restaurant given a latitude and longitude OR through given text of a particular city.
+
+** Update 30/01: Text search for cities implemented.
+
 
 Made using React and VS Code
 
