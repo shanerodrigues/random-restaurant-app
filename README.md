@@ -4,12 +4,13 @@ https://shanerodrigues.github.io/random-restaurant-app
 
 This app suggests a random restaurant given a latitude and longitude OR through given text of a particular city.
 
-
-Made using React and VS Code
+Made using React and VS Code.
 
 APIs used - [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/tutorial) & [OpenCage Data](https://opencagedata.com/).
 
-**Update 30/01: Text search for cities implemented.**
+## Updates 
+
+30/01/2019: Text search for cities implemented.
 
 ------
 
