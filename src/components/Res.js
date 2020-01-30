@@ -183,23 +183,28 @@ export default function Res(){
                 <Typography variant="h2" align="center" color="textPrimary" gutterBottom >
                     <Box>Random Restaurant Generator</Box>
                 </Typography>
-            <div className="subtitle2">
+            <div className="subtitle1">
                 <Typography variant="h5" align="center" color="textSecondary" display="inline">
                     <Box >Enter the coordinates of a city and discover a restaurant!</Box>
                 </Typography>
             </div>
             </ThemeProvider>
             <div className ="lat-lng">
-                <Input placeholder = "search for lat here. default is -33.865143" onChange={handleLatChange}/>
+                <Input placeholder = "search for lat here default is -33.865143" onChange={handleLatChange}/>
                 <Input placeholder = "search for lng here default is 151.209900" onChange={handleLngChange}/>
             </div>
             <Button onClick={handleSearch} color ="secondary" variant="outlined">Search</Button>
+            <div className="subtitle2">
+                <Typography variant="h5" align="center" color="textSecondary" display="inline">
+                    <Box >Enter a city and discover a restaurant!</Box>
+                </Typography>
+            </div>
             <div className="other">
-                <div className='other-input'>
-                    <Input placeholder = "search for city here default is Sydney" onChange={handleSearchChange}></Input>
-                    <Button onClick={handleRequest} color="secondary" variant="outlined">Search demo</Button>
+                <div className='lat-lng'>
+                    <Input placeholder = "search for a city here default is Sydney" onChange={handleSearchChange}></Input> 
                 </div>
             </div>
+            <Button onClick={handleRequest} color="secondary" variant="outlined">Search</Button>
             {currentRandomRestaurant}
         </div>
     );
