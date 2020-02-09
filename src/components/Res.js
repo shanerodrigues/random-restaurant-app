@@ -14,70 +14,6 @@ theme = responsiveFontSizes(theme);
 
 var api_key = 'bd548102b4ae420185f6f1dd430dc27b'
 var api_url = 'https://api.opencagedata.com/geocode/v1/json?'
-//q=PLACENAME&key=bd548102b4ae420185f6f1dd430dc27b'
-
-// https://api.opencagedata.com/geocode/v1/json?q=LAT+LNG&key=bd548102b4ae420185f6f1dd430dc27b
-// https://api.opencagedata.com/geocode/v1/json?q=PLACENAME&key=bd548102b4ae420185f6f1dd430dc27b
-
-// commented
-
-/*
-            
-        <div className="flex.container">
-            <ThemeProvider theme={theme}>
-            <Typography variant="h2" align="center" color="textPrimary" gutterBottom >
-                <Box>Random Restaurant Generator</Box>
-            </Typography>
-            <div className="subtitle2">
-            <Typography variant="h5" align="center" color="textSecondary" display="inline">
-                <Box >Enter the coordinates of a city and discover a restaurant!</Box>
-            </Typography>
-            <div className="menu">
-                <div className ="lat-lng">
-                    <Input placeholder = "search for lat here. default is -33.865143" onChange={handleLatChange}/>
-                    <Input placeholder = "search for lng here default is 151.209900" onChange={handleLngChange}/>
-                    <Button onClick={handleSearch} color ="secondary" variant="outlined">Search</Button>
-                </div>
-                <div className="other">
-                    <div className='other-input'>
-                        <Input placeholder = "search for city here default is Sydney" onChange={handleSearchChange}></Input>
-                        
-                    </div>
-                    <Button onClick={handleRequest} color="secondary" variant="outlined">Search demo</Button>
-                </div>
-                {currentRandomRestaurant}
-            </div>
-        </div>
-
-        // mess up
-        <div class="wrapper">
-            <header class="header">
-                Welcome
-            </header>
-            <div class="aside aside-1">
-                <Input placeholder = "search for lat here. default is -33.865143" onChange={handleLatChange}/>
-                <Input placeholder = "search for lng here default is 151.209900" onChange={handleLngChange}/>
-                <Button onClick={handleSearch} color ="secondary" variant="outlined">Search</Button>
-            </div>
-            <div class="aside aside-2">
-                <Input placeholder = "search for city here default is Sydney" onChange={handleSearchChange}></Input>
-                <Button onClick={handleRequest} color="secondary" variant="outlined">Search demo</Button>
-            </div>
-            <footer class="footer">
-                {currentRandomRestaurant}
-            </footer>
-        </div>
-        // Text search
-                        <div className="other">
-                    <div className='other-input'>
-                        <Input placeholder = "search for city here default is Sydney" onChange={handleSearchChange}></Input>
-                        
-                    </div>
-                    <Button onClick={handleRequest} color="secondary" variant="outlined">Search demo</Button>
-                </div>
-*/
-
-
 
 export default function Res(){
 
@@ -90,10 +26,8 @@ export default function Res(){
     var textLng = null;    
 
     /* Function that returns lat + long of place given in Text Search 
-    The lat + long is then passed into handleSearch() function which
-    finds the restaurant and displays.*/
+    The lat + long is then handled below and finds a restaurant*/
     async function handleRequest(event){
-        
         
 
         var request_url = api_url 
@@ -108,16 +42,40 @@ export default function Res(){
         var textLat = (data.results[0].geometry.lat);
         var textLng = (data.results[0].geometry.lng);
         //debugging console.log(textLat + ' lat ' + textLng + ' lng ');
-        lat = (textLat);
-        lng = (textLng);
-        // debugging console.log(lat + ' lat ' + lng + ' lng ');
-        handleSearch();
+        
+        var latitude = (textLat);
+        var longitude = (textLng);
+        // debugging console.log(latitude + ' lat ' + longitude + ' lng ');
+
+
+        //handleSearch();
+
+        // Make the search for restaurant
+        const location = new window.google.maps.LatLng(latitude,longitude);
+        const map = new window.google.maps.Map(document.getElementById('map'), {
+            center:location,
+            zoom: 15
+        });
+
+        const request = {
+            location: location,
+            // Radius is in metres.
+            radius: '1500',
+            type: ['restaurant']
+        };
+
+        const service = new window.google.maps.places.PlacesService(map);
+
+        service.nearbySearch(request, (results) =>{
+            const randomRestaurant = results[_.random(0,19)];
+            setCurrentRestaurant(randomRestaurant); 
+            });
         
     }
 
     /*Gets values from inputs and stores them in variables */
     function handleSearchChange(event){
-        place = (event.target.value);
+        setPlace(event.target.value);
         //console.log(place);
 
     }
@@ -133,7 +91,6 @@ export default function Res(){
     // Google Maps Javascript API 
     function handleSearch(event){
         const location = new window.google.maps.LatLng(lat,lng);
-
         const map = new window.google.maps.Map(document.getElementById('map'), {
             center:location,
             zoom: 15
