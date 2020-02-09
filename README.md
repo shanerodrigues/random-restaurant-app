@@ -12,6 +12,8 @@ APIs used - [Google Maps Javascript API](https://developers.google.com/maps/docu
 
 30/01/2019: Text search for cities implemented.
 
+9/02/2019: Fixed Text Search bug where after initial search, the location defaulted back to Sydney.
+
 ------
 
 
