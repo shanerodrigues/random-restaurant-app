@@ -10,9 +10,9 @@ APIs used - [Google Maps Javascript API](https://developers.google.com/maps/docu
 
 ## Updates 
 
-9/01/2020: Fixed Text Search bug where after initial search, the location defaulted back to Sydney.
+9/01/2020: Text search for cities implemented.
 
-30/01/2020: Text search for cities implemented.
+30/01/2020: Fixed Text Search bug where after initial search, the location defaulted back to Sydney.
 
 01/07/2020: Google Maps API needs billing to work so no restaurants will be displayed unfortunately.
 
